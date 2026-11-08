@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "langchain-direct-study"
+version = "1.0.0"
+description = "Paired measurement: LangChain used directly (chains and runnables) versus a native SQLite loop, on the task suite of the LangGraph-versus-native study."
+license = { text = "Apache-2.0" }
+requires-python = ">=3.11"
+
+[tool.setuptools]
+packages = ["study"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
