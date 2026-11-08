@@ -1,0 +1,541 @@
+[
+  {
+    "family": "sequential",
+    "steps": [
+      {
+        "collection": "orders",
+        "key": "t01-fx1",
+        "kind": "append",
+        "payload": "order-1001"
+      },
+      {
+        "collection": "orders",
+        "key": "t01-fx2",
+        "kind": "append",
+        "payload": "order-1002"
+      },
+      {
+        "collection": "audit",
+        "key": "t01-fx3",
+        "kind": "append",
+        "payload": "t01-closed"
+      }
+    ],
+    "store": {},
+    "task_id": "T01"
+  },
+  {
+    "family": "sequential",
+    "steps": [
+      {
+        "collection": "orders",
+        "key": "t02-fx1",
+        "kind": "append",
+        "payload": "order-2001"
+      },
+      {
+        "collection": "orders",
+        "key": "t02-fx2",
+        "kind": "append",
+        "payload": "order-2002"
+      },
+      {
+        "collection": "shipments",
+        "key": "t02-fx3",
+        "kind": "append",
+        "payload": "ship-2001"
+      },
+      {
+        "collection": "shipments",
+        "key": "t02-fx4",
+        "kind": "append",
+        "payload": "ship-2002"
+      },
+      {
+        "collection": "audit",
+        "key": "t02-fx5",
+        "kind": "append",
+        "payload": "t02-closed"
+      }
+    ],
+    "store": {},
+    "task_id": "T02"
+  },
+  {
+    "family": "sequential",
+    "steps": [
+      {
+        "collection": "orders",
+        "key": "t03-fx1",
+        "kind": "append",
+        "payload": "order-3001"
+      },
+      {
+        "collection": "orders",
+        "flaky": 0.5,
+        "key": "t03-fx2",
+        "kind": "append",
+        "payload": "order-3002"
+      },
+      {
+        "collection": "shipments",
+        "key": "t03-fx3",
+        "kind": "append",
+        "payload": "ship-3001"
+      },
+      {
+        "collection": "audit",
+        "key": "t03-fx4",
+        "kind": "append",
+        "payload": "t03-closed"
+      }
+    ],
+    "store": {},
+    "task_id": "T03"
+  },
+  {
+    "family": "branch",
+    "steps": [
+      {
+        "kind": "lookup",
+        "store_key": "tier"
+      },
+      {
+        "default": {
+          "collection": "perks",
+          "key": "t04-fx2",
+          "payload": "basic-pack"
+        },
+        "kind": "branch",
+        "map": {
+          "gold": {
+            "collection": "perks",
+            "key": "t04-fx1",
+            "payload": "gold-pack"
+          }
+        },
+        "on_step": 0
+      },
+      {
+        "collection": "audit",
+        "key": "t04-fx3",
+        "kind": "append",
+        "payload": "t04-closed"
+      }
+    ],
+    "store": {
+      "tier": "gold"
+    },
+    "task_id": "T04"
+  },
+  {
+    "family": "branch",
+    "steps": [
+      {
+        "kind": "lookup",
+        "store_key": "region"
+      },
+      {
+        "default": {
+          "collection": "routing",
+          "key": "t05-fx2",
+          "payload": "us-hub"
+        },
+        "kind": "branch",
+        "map": {
+          "eu": {
+            "collection": "routing",
+            "key": "t05-fx1",
+            "payload": "eu-hub"
+          }
+        },
+        "on_step": 0
+      },
+      {
+        "collection": "orders",
+        "key": "t05-fx3",
+        "kind": "append",
+        "payload": "order-5001"
+      },
+      {
+        "collection": "audit",
+        "key": "t05-fx4",
+        "kind": "append",
+        "payload": "t05-closed"
+      }
+    ],
+    "store": {
+      "region": "apac"
+    },
+    "task_id": "T05"
+  },
+  {
+    "family": "branch",
+    "steps": [
+      {
+        "flaky": 0.5,
+        "kind": "lookup",
+        "store_key": "tier"
+      },
+      {
+        "default": {
+          "collection": "perks",
+          "key": "t06-fx2",
+          "payload": "basic-pack"
+        },
+        "kind": "branch",
+        "map": {
+          "gold": {
+            "collection": "perks",
+            "key": "t06-fx1",
+            "payload": "gold-pack"
+          }
+        },
+        "on_step": 0
+      },
+      {
+        "collection": "perks",
+        "key": "t06-fx3",
+        "kind": "append",
+        "payload": "welcome-note"
+      },
+      {
+        "collection": "audit",
+        "key": "t06-fx4",
+        "kind": "append",
+        "payload": "t06-closed"
+      }
+    ],
+    "store": {
+      "tier": "basic"
+    },
+    "task_id": "T06"
+  },
+  {
+    "family": "long",
+    "steps": [
+      {
+        "collection": "orders",
+        "key": "t07-fx1",
+        "kind": "append",
+        "payload": "order-7001"
+      },
+      {
+        "collection": "orders",
+        "key": "t07-fx2",
+        "kind": "append",
+        "payload": "order-7002"
+      },
+      {
+        "collection": "orders",
+        "key": "t07-fx3",
+        "kind": "append",
+        "payload": "order-7003"
+      },
+      {
+        "collection": "shipments",
+        "key": "t07-fx4",
+        "kind": "append",
+        "payload": "ship-7001"
+      },
+      {
+        "collection": "shipments",
+        "key": "t07-fx5",
+        "kind": "append",
+        "payload": "ship-7002"
+      },
+      {
+        "collection": "shipments",
+        "key": "t07-fx6",
+        "kind": "append",
+        "payload": "ship-7003"
+      },
+      {
+        "collection": "invoices",
+        "key": "t07-fx7",
+        "kind": "append",
+        "payload": "inv-7001"
+      },
+      {
+        "collection": "audit",
+        "key": "t07-fx8",
+        "kind": "append",
+        "payload": "t07-closed"
+      }
+    ],
+    "store": {},
+    "task_id": "T07"
+  },
+  {
+    "family": "long",
+    "steps": [
+      {
+        "collection": "orders",
+        "key": "t08-fx1",
+        "kind": "append",
+        "payload": "order-8001"
+      },
+      {
+        "collection": "orders",
+        "flaky": 0.4,
+        "key": "t08-fx2",
+        "kind": "append",
+        "payload": "order-8002"
+      },
+      {
+        "collection": "orders",
+        "key": "t08-fx3",
+        "kind": "append",
+        "payload": "order-8003"
+      },
+      {
+        "collection": "shipments",
+        "key": "t08-fx4",
+        "kind": "append",
+        "payload": "ship-8001"
+      },
+      {
+        "collection": "shipments",
+        "flaky": 0.4,
+        "key": "t08-fx5",
+        "kind": "append",
+        "payload": "ship-8002"
+      },
+      {
+        "collection": "invoices",
+        "key": "t08-fx6",
+        "kind": "append",
+        "payload": "inv-8001"
+      },
+      {
+        "collection": "audit",
+        "key": "t08-fx7",
+        "kind": "append",
+        "payload": "t08-closed"
+      }
+    ],
+    "store": {},
+    "task_id": "T08"
+  },
+  {
+    "family": "long",
+    "steps": [
+      {
+        "collection": "orders",
+        "key": "t09-fx1",
+        "kind": "append",
+        "payload": "order-9001"
+      },
+      {
+        "collection": "orders",
+        "key": "t09-fx2",
+        "kind": "append",
+        "payload": "order-9002"
+      },
+      {
+        "collection": "shipments",
+        "key": "t09-fx3",
+        "kind": "append",
+        "payload": "ship-9001"
+      },
+      {
+        "kind": "lookup",
+        "store_key": "warehouse"
+      },
+      {
+        "collection": "shipments",
+        "key": "t09-fx4",
+        "kind": "append",
+        "payload": "ship-9002"
+      },
+      {
+        "collection": "invoices",
+        "key": "t09-fx5",
+        "kind": "append",
+        "payload": "inv-9001"
+      },
+      {
+        "collection": "audit",
+        "key": "t09-fx6",
+        "kind": "append",
+        "payload": "t09-closed"
+      }
+    ],
+    "store": {
+      "warehouse": "north"
+    },
+    "task_id": "T09"
+  },
+  {
+    "family": "mixed",
+    "steps": [
+      {
+        "kind": "lookup",
+        "store_key": "tier"
+      },
+      {
+        "default": {
+          "collection": "perks",
+          "key": "t10-fx2",
+          "payload": "basic-pack"
+        },
+        "kind": "branch",
+        "map": {
+          "gold": {
+            "collection": "perks",
+            "key": "t10-fx1",
+            "payload": "gold-pack"
+          }
+        },
+        "on_step": 0
+      },
+      {
+        "collection": "orders",
+        "key": "t10-fx3",
+        "kind": "append",
+        "payload": "order-10001"
+      },
+      {
+        "collection": "orders",
+        "flaky": 0.5,
+        "key": "t10-fx4",
+        "kind": "append",
+        "payload": "order-10002"
+      },
+      {
+        "collection": "shipments",
+        "key": "t10-fx5",
+        "kind": "append",
+        "payload": "ship-10001"
+      },
+      {
+        "collection": "audit",
+        "key": "t10-fx6",
+        "kind": "append",
+        "payload": "t10-closed"
+      }
+    ],
+    "store": {
+      "tier": "gold"
+    },
+    "task_id": "T10"
+  },
+  {
+    "family": "mixed",
+    "steps": [
+      {
+        "collection": "orders",
+        "key": "t11-fx1",
+        "kind": "append",
+        "payload": "order-11001"
+      },
+      {
+        "flaky": 0.4,
+        "kind": "lookup",
+        "store_key": "region"
+      },
+      {
+        "default": {
+          "collection": "routing",
+          "key": "t11-fx3",
+          "payload": "us-hub"
+        },
+        "kind": "branch",
+        "map": {
+          "eu": {
+            "collection": "routing",
+            "key": "t11-fx2",
+            "payload": "eu-hub"
+          }
+        },
+        "on_step": 1
+      },
+      {
+        "collection": "orders",
+        "key": "t11-fx4",
+        "kind": "append",
+        "payload": "order-11002"
+      },
+      {
+        "collection": "shipments",
+        "key": "t11-fx5",
+        "kind": "append",
+        "payload": "ship-11001"
+      },
+      {
+        "collection": "audit",
+        "key": "t11-fx6",
+        "kind": "append",
+        "payload": "t11-closed"
+      }
+    ],
+    "store": {
+      "region": "eu"
+    },
+    "task_id": "T11"
+  },
+  {
+    "family": "mixed",
+    "steps": [
+      {
+        "kind": "lookup",
+        "store_key": "tier"
+      },
+      {
+        "default": {
+          "collection": "perks",
+          "key": "t12-fx2",
+          "payload": "basic-pack"
+        },
+        "kind": "branch",
+        "map": {
+          "gold": {
+            "collection": "perks",
+            "key": "t12-fx1",
+            "payload": "gold-pack"
+          }
+        },
+        "on_step": 0
+      },
+      {
+        "collection": "orders",
+        "key": "t12-fx3",
+        "kind": "append",
+        "payload": "order-12001"
+      },
+      {
+        "collection": "orders",
+        "key": "t12-fx4",
+        "kind": "append",
+        "payload": "order-12002"
+      },
+      {
+        "kind": "lookup",
+        "store_key": "warehouse"
+      },
+      {
+        "collection": "shipments",
+        "key": "t12-fx5",
+        "kind": "append",
+        "payload": "ship-12001"
+      },
+      {
+        "collection": "invoices",
+        "key": "t12-fx6",
+        "kind": "append",
+        "payload": "inv-12001"
+      },
+      {
+        "collection": "audit",
+        "key": "t12-fx7",
+        "kind": "append",
+        "payload": "t12-closed"
+      }
+    ],
+    "store": {
+      "tier": "basic",
+      "warehouse": "south"
+    },
+    "task_id": "T12"
+  }
+]

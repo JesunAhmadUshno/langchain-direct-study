@@ -1,0 +1,635 @@
+{
+  "axis1": {
+    "ci90": [
+      0.0,
+      0.0
+    ],
+    "degenerate": true,
+    "margin": 0.05,
+    "mean_paired_diff": 0.0,
+    "overall_pass1": {
+      "langchain": 0.9791666666666666,
+      "native": 0.9791666666666666
+    },
+    "pass1_ci95_exact": {
+      "langchain": [
+        0.9267631692050122,
+        0.9974669532112623
+      ],
+      "native": [
+        0.9267631692050122,
+        0.9974669532112623
+      ]
+    },
+    "pass1_pooled": {
+      "langchain": {
+        "successes": 94,
+        "trials": 96
+      },
+      "native": {
+        "successes": 94,
+        "trials": 96
+      }
+    },
+    "sd": 0.0,
+    "verdict": "CONFIRMED"
+  },
+  "axis2": {
+    "langchain": {
+      "1": 0.9791666666666666,
+      "2": 0.9583333333333334,
+      "3": 0.9375,
+      "4": 0.9166666666666666,
+      "5": 0.8958333333333334,
+      "6": 0.875,
+      "7": 0.8541666666666666,
+      "8": 0.8333333333333334
+    },
+    "native": {
+      "1": 0.9791666666666666,
+      "2": 0.9583333333333334,
+      "3": 0.9375,
+      "4": 0.9166666666666666,
+      "5": 0.8958333333333334,
+      "6": 0.875,
+      "7": 0.8541666666666666,
+      "8": 0.8333333333333334
+    }
+  },
+  "axis3": {
+    "code_surface": {
+      "harness and analysis": {
+        "code_lines": 880,
+        "physical_lines": 976
+      },
+      "langchain arm": {
+        "code_lines": 95,
+        "physical_lines": 118
+      },
+      "native arm": {
+        "code_lines": 96,
+        "physical_lines": 111
+      },
+      "shared core": {
+        "code_lines": 369,
+        "physical_lines": 434
+      }
+    },
+    "invocation_ratio": 1.0,
+    "per_arm": {
+      "langchain": {
+        "invocations_median": 5.0,
+        "invocations_p95": 8,
+        "state_bytes_median": 8192.0,
+        "wall_median": 0.39847594899993055,
+        "wall_p95": 0.6490875749996121
+      },
+      "native": {
+        "invocations_median": 5.0,
+        "invocations_p95": 8,
+        "state_bytes_median": 16384.0,
+        "wall_median": 0.8687622035001823,
+        "wall_p95": 1.4878199579998181
+      }
+    },
+    "verdict": "REFUTED",
+    "wall_ratio": 0.45867090832738666,
+    "wall_ratio_bootstrap": {
+      "ci95": [
+        0.41429764715554257,
+        0.4974589258565778
+      ],
+      "pairs": 96,
+      "reps": 10000,
+      "seed": 20261108
+    },
+    "wall_sign_test": {
+      "langchain_faster": 96,
+      "langchain_slower": 0,
+      "p_two_sided": 2.524354896707238e-29,
+      "pairs": 96
+    }
+  },
+  "axis4": {
+    "per_arm": {
+      "langchain": {
+        "by_class": {
+          "F1": {
+            "passes": 24,
+            "rate": 1.0,
+            "rate_ci95_exact": [
+              0.8575264022774745,
+              1.0
+            ],
+            "recomputed_counts": {
+              "0": 24
+            },
+            "runs": 24
+          },
+          "F2": {
+            "passes": 24,
+            "rate": 1.0,
+            "rate_ci95_exact": [
+              0.8575264022774745,
+              1.0
+            ],
+            "recomputed_counts": {
+              "1": 24
+            },
+            "runs": 24
+          }
+        },
+        "duplicate_runs": 0,
+        "killed_as_expected": 48,
+        "passes": 48,
+        "rate": 1.0,
+        "rate_ci95_exact": [
+          0.9260272146527198,
+          1.0
+        ],
+        "recomputed_median": 0.5,
+        "runs": 48
+      },
+      "native": {
+        "by_class": {
+          "F1": {
+            "passes": 24,
+            "rate": 1.0,
+            "rate_ci95_exact": [
+              0.8575264022774745,
+              1.0
+            ],
+            "recomputed_counts": {
+              "0": 24
+            },
+            "runs": 24
+          },
+          "F2": {
+            "passes": 24,
+            "rate": 1.0,
+            "rate_ci95_exact": [
+              0.8575264022774745,
+              1.0
+            ],
+            "recomputed_counts": {
+              "1": 24
+            },
+            "runs": 24
+          }
+        },
+        "duplicate_runs": 0,
+        "killed_as_expected": 48,
+        "passes": 48,
+        "rate": 1.0,
+        "rate_ci95_exact": [
+          0.9260272146527198,
+          1.0
+        ],
+        "recomputed_median": 0.5,
+        "runs": 48
+      }
+    },
+    "rate_gap": 0.0,
+    "recompute_outliers": [],
+    "unlanded_kills": {
+      "langchain": 0,
+      "native": 0
+    },
+    "verdict": "CONFIRMED"
+  },
+  "env": {
+    "fixtures_sha256": "8c4770760b195d13faddd3bb4cfbf60ab9c24d1581acbab5c83fed9dc7d555ad",
+    "packages": {
+      "langchain": "1.4.9",
+      "langchain-core": "1.7.6",
+      "langgraph": "1.2.20"
+    },
+    "platform": "Linux-7.0.0-43-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3",
+    "trial_seeds": [
+      1000,
+      1001,
+      1002,
+      1003,
+      1004,
+      1005,
+      1006,
+      1007
+    ]
+  },
+  "per_task": {
+    "T01": {
+      "langchain": {
+        "pass1": 1.0,
+        "passk": {
+          "1": 1.0,
+          "2": 1.0,
+          "3": 1.0,
+          "4": 1.0,
+          "5": 1.0,
+          "6": 1.0,
+          "7": 1.0,
+          "8": 1.0
+        },
+        "successes": 8,
+        "trials": 8
+      },
+      "native": {
+        "pass1": 1.0,
+        "passk": {
+          "1": 1.0,
+          "2": 1.0,
+          "3": 1.0,
+          "4": 1.0,
+          "5": 1.0,
+          "6": 1.0,
+          "7": 1.0,
+          "8": 1.0
+        },
+        "successes": 8,
+        "trials": 8
+      }
+    },
+    "T02": {
+      "langchain": {
+        "pass1": 1.0,
+        "passk": {
+          "1": 1.0,
+          "2": 1.0,
+          "3": 1.0,
+          "4": 1.0,
+          "5": 1.0,
+          "6": 1.0,
+          "7": 1.0,
+          "8": 1.0
+        },
+        "successes": 8,
+        "trials": 8
+      },
+      "native": {
+        "pass1": 1.0,
+        "passk": {
+          "1": 1.0,
+          "2": 1.0,
+          "3": 1.0,
+          "4": 1.0,
+          "5": 1.0,
+          "6": 1.0,
+          "7": 1.0,
+          "8": 1.0
+        },
+        "successes": 8,
+        "trials": 8
+      }
+    },
+    "T03": {
+      "langchain": {
+        "pass1": 0.875,
+        "passk": {
+          "1": 0.875,
+          "2": 0.75,
+          "3": 0.625,
+          "4": 0.5,
+          "5": 0.375,
+          "6": 0.25,
+          "7": 0.125,
+          "8": 0.0
+        },
+        "successes": 7,
+        "trials": 8
+      },
+      "native": {
+        "pass1": 0.875,
+        "passk": {
+          "1": 0.875,
+          "2": 0.75,
+          "3": 0.625,
+          "4": 0.5,
+          "5": 0.375,
+          "6": 0.25,
+          "7": 0.125,
+          "8": 0.0
+        },
+        "successes": 7,
+        "trials": 8
+      }
+    },
+    "T04": {
+      "langchain": {
+        "pass1": 1.0,
+        "passk": {
+          "1": 1.0,
+          "2": 1.0,
+          "3": 1.0,
+          "4": 1.0,
+          "5": 1.0,
+          "6": 1.0,
+          "7": 1.0,
+          "8": 1.0
+        },
+        "successes": 8,
+        "trials": 8
+      },
+      "native": {
+        "pass1": 1.0,
+        "passk": {
+          "1": 1.0,
+          "2": 1.0,
+          "3": 1.0,
+          "4": 1.0,
+          "5": 1.0,
+          "6": 1.0,
+          "7": 1.0,
+          "8": 1.0
+        },
+        "successes": 8,
+        "trials": 8
+      }
+    },
+    "T05": {
+      "langchain": {
+        "pass1": 1.0,
+        "passk": {
+          "1": 1.0,
+          "2": 1.0,
+          "3": 1.0,
+          "4": 1.0,
+          "5": 1.0,
+          "6": 1.0,
+          "7": 1.0,
+          "8": 1.0
+        },
+        "successes": 8,
+        "trials": 8
+      },
+      "native": {
+        "pass1": 1.0,
+        "passk": {
+          "1": 1.0,
+          "2": 1.0,
+          "3": 1.0,
+          "4": 1.0,
+          "5": 1.0,
+          "6": 1.0,
+          "7": 1.0,
+          "8": 1.0
+        },
+        "successes": 8,
+        "trials": 8
+      }
+    },
+    "T06": {
+      "langchain": {
+        "pass1": 1.0,
+        "passk": {
+          "1": 1.0,
+          "2": 1.0,
+          "3": 1.0,
+          "4": 1.0,
+          "5": 1.0,
+          "6": 1.0,
+          "7": 1.0,
+          "8": 1.0
+        },
+        "successes": 8,
+        "trials": 8
+      },
+      "native": {
+        "pass1": 1.0,
+        "passk": {
+          "1": 1.0,
+          "2": 1.0,
+          "3": 1.0,
+          "4": 1.0,
+          "5": 1.0,
+          "6": 1.0,
+          "7": 1.0,
+          "8": 1.0
+        },
+        "successes": 8,
+        "trials": 8
+      }
+    },
+    "T07": {
+      "langchain": {
+        "pass1": 1.0,
+        "passk": {
+          "1": 1.0,
+          "2": 1.0,
+          "3": 1.0,
+          "4": 1.0,
+          "5": 1.0,
+          "6": 1.0,
+          "7": 1.0,
+          "8": 1.0
+        },
+        "successes": 8,
+        "trials": 8
+      },
+      "native": {
+        "pass1": 1.0,
+        "passk": {
+          "1": 1.0,
+          "2": 1.0,
+          "3": 1.0,
+          "4": 1.0,
+          "5": 1.0,
+          "6": 1.0,
+          "7": 1.0,
+          "8": 1.0
+        },
+        "successes": 8,
+        "trials": 8
+      }
+    },
+    "T08": {
+      "langchain": {
+        "pass1": 1.0,
+        "passk": {
+          "1": 1.0,
+          "2": 1.0,
+          "3": 1.0,
+          "4": 1.0,
+          "5": 1.0,
+          "6": 1.0,
+          "7": 1.0,
+          "8": 1.0
+        },
+        "successes": 8,
+        "trials": 8
+      },
+      "native": {
+        "pass1": 1.0,
+        "passk": {
+          "1": 1.0,
+          "2": 1.0,
+          "3": 1.0,
+          "4": 1.0,
+          "5": 1.0,
+          "6": 1.0,
+          "7": 1.0,
+          "8": 1.0
+        },
+        "successes": 8,
+        "trials": 8
+      }
+    },
+    "T09": {
+      "langchain": {
+        "pass1": 1.0,
+        "passk": {
+          "1": 1.0,
+          "2": 1.0,
+          "3": 1.0,
+          "4": 1.0,
+          "5": 1.0,
+          "6": 1.0,
+          "7": 1.0,
+          "8": 1.0
+        },
+        "successes": 8,
+        "trials": 8
+      },
+      "native": {
+        "pass1": 1.0,
+        "passk": {
+          "1": 1.0,
+          "2": 1.0,
+          "3": 1.0,
+          "4": 1.0,
+          "5": 1.0,
+          "6": 1.0,
+          "7": 1.0,
+          "8": 1.0
+        },
+        "successes": 8,
+        "trials": 8
+      }
+    },
+    "T10": {
+      "langchain": {
+        "pass1": 0.875,
+        "passk": {
+          "1": 0.875,
+          "2": 0.75,
+          "3": 0.625,
+          "4": 0.5,
+          "5": 0.375,
+          "6": 0.25,
+          "7": 0.125,
+          "8": 0.0
+        },
+        "successes": 7,
+        "trials": 8
+      },
+      "native": {
+        "pass1": 0.875,
+        "passk": {
+          "1": 0.875,
+          "2": 0.75,
+          "3": 0.625,
+          "4": 0.5,
+          "5": 0.375,
+          "6": 0.25,
+          "7": 0.125,
+          "8": 0.0
+        },
+        "successes": 7,
+        "trials": 8
+      }
+    },
+    "T11": {
+      "langchain": {
+        "pass1": 1.0,
+        "passk": {
+          "1": 1.0,
+          "2": 1.0,
+          "3": 1.0,
+          "4": 1.0,
+          "5": 1.0,
+          "6": 1.0,
+          "7": 1.0,
+          "8": 1.0
+        },
+        "successes": 8,
+        "trials": 8
+      },
+      "native": {
+        "pass1": 1.0,
+        "passk": {
+          "1": 1.0,
+          "2": 1.0,
+          "3": 1.0,
+          "4": 1.0,
+          "5": 1.0,
+          "6": 1.0,
+          "7": 1.0,
+          "8": 1.0
+        },
+        "successes": 8,
+        "trials": 8
+      }
+    },
+    "T12": {
+      "langchain": {
+        "pass1": 1.0,
+        "passk": {
+          "1": 1.0,
+          "2": 1.0,
+          "3": 1.0,
+          "4": 1.0,
+          "5": 1.0,
+          "6": 1.0,
+          "7": 1.0,
+          "8": 1.0
+        },
+        "successes": 8,
+        "trials": 8
+      },
+      "native": {
+        "pass1": 1.0,
+        "passk": {
+          "1": 1.0,
+          "2": 1.0,
+          "3": 1.0,
+          "4": 1.0,
+          "5": 1.0,
+          "6": 1.0,
+          "7": 1.0,
+          "8": 1.0
+        },
+        "successes": 8,
+        "trials": 8
+      }
+    }
+  },
+  "sibling_published": {
+    "langgraph_arm_code_lines": 81,
+    "langgraph_pass1": 0.979,
+    "langgraph_pass4": 0.917,
+    "langgraph_recomputed_median": 1.0,
+    "langgraph_recovery": "48 of 48",
+    "langgraph_state_bytes_median": 36864,
+    "langgraph_wall_median": 0.293,
+    "langgraph_wall_ratio": 0.299,
+    "native_arm_code_lines": 96,
+    "native_recomputed_median": 0.5,
+    "native_recovery": "48 of 48",
+    "native_state_bytes_median": 16384,
+    "native_wall_median": 0.98
+  },
+  "thresholds": {
+    "h1_ci_level": 0.9,
+    "h1_margin": 0.05,
+    "h2_no_tax": 1.0,
+    "h2_tax_factor": 1.1,
+    "h3_max_unlanded_kills": 4,
+    "h3_min_passes": 47,
+    "h3_refute_below": 45
+  },
+  "verdicts": {
+    "H1": "CONFIRMED",
+    "H2": "REFUTED",
+    "H3": "CONFIRMED"
+  }
+}
