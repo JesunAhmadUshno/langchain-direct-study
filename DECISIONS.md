@@ -96,3 +96,17 @@ This study does not cap either arm; the code surface of both arms is
 counted and published so a reader can judge whether the comparison was
 fair. The native arm is one competent implementation, not "the" native
 approach. (Sibling study DECISIONS D6, unchanged.)
+
+## D10. Post-run CI fix, measurement untouched (logged per the stop rules)
+
+After the results commit, CI failed on both matrix legs with
+ModuleNotFoundError: the workflow invoked bare `pytest`, which does
+not put the repository root on sys.path, while local runs used
+`python -m pytest`. The fix changes only the workflow's invocation to
+`python -m pytest -q` (and `python -m pip install`), matching the
+sibling study's workflow. No study code, test, raw result or analysis
+output changed, so the measured suite was not rerun: a rerun would
+replace the frozen single-pass wall times with new ones and could not
+change any verdict input except the wall medians it would invalidate.
+Local verification before the fix: `python -m pytest -q`, 23 of 23
+passed, including the reproduction tests over the committed raw files.
