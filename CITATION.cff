@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below."
+title: "langchain-direct-study: LangChain used directly versus a native loop, a pre-registered paired study of agent orchestration"
+authors:
+  - family-names: Ushno
+    given-names: Jesun Ahmad
+repository-code: "https://github.com/JesunAhmadUshno/langchain-direct-study"
+license: Apache-2.0
+date-released: 2026-11-08
