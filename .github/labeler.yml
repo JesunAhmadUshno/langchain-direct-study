@@ -1,0 +1,12 @@
+study:
+  - changed-files:
+      - any-glob-to-any-file: ["study/**"]
+tests:
+  - changed-files:
+      - any-glob-to-any-file: ["tests/**"]
+docs:
+  - changed-files:
+      - any-glob-to-any-file: ["README.md", "CHANGELOG.md", "ROADMAP.md"]
+automation:
+  - changed-files:
+      - any-glob-to-any-file: [".github/**"]
