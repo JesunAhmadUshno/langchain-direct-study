@@ -1,0 +1,212 @@
+{
+  "amendment": "DECISIONS.md D11 (2026-11-17)",
+  "env": {
+    "fixtures_sha256": "8c4770760b195d13faddd3bb4cfbf60ab9c24d1581acbab5c83fed9dc7d555ad",
+    "packages": {
+      "langchain": "1.4.9",
+      "langchain-core": "1.7.6",
+      "langgraph": "1.2.20"
+    },
+    "platform": "Linux-7.0.0-44-generic-x86_64-with-glibc2.39",
+    "python": "3.12.3",
+    "trial_seeds": [
+      1000,
+      1001,
+      1002,
+      1003,
+      1004,
+      1005,
+      1006,
+      1007
+    ],
+    "variant": "native arm with PRAGMA journal_mode=WAL (DECISIONS.md D11)"
+  },
+  "fault_native_wal": {
+    "by_class": {
+      "F1": {
+        "passes": 24,
+        "recomputed_counts": {
+          "0": 24
+        },
+        "runs": 24
+      },
+      "F2": {
+        "passes": 24,
+        "recomputed_counts": {
+          "1": 24
+        },
+        "runs": 24
+      }
+    },
+    "duplicate_runs": 0,
+    "duplicated_keys_total": 0,
+    "killed_as_expected": 48,
+    "passes": 48,
+    "recomputed_median": 0.5,
+    "runs": 48
+  },
+  "main": {
+    "per_arm": {
+      "langchain": {
+        "invocations_median": 5.0,
+        "invocations_p95": 8,
+        "pass1": 0.9791666666666666,
+        "per_task": {
+          "T01": {
+            "pass1": 1.0,
+            "successes": 8,
+            "trials": 8
+          },
+          "T02": {
+            "pass1": 1.0,
+            "successes": 8,
+            "trials": 8
+          },
+          "T03": {
+            "pass1": 0.875,
+            "successes": 7,
+            "trials": 8
+          },
+          "T04": {
+            "pass1": 1.0,
+            "successes": 8,
+            "trials": 8
+          },
+          "T05": {
+            "pass1": 1.0,
+            "successes": 8,
+            "trials": 8
+          },
+          "T06": {
+            "pass1": 1.0,
+            "successes": 8,
+            "trials": 8
+          },
+          "T07": {
+            "pass1": 1.0,
+            "successes": 8,
+            "trials": 8
+          },
+          "T08": {
+            "pass1": 1.0,
+            "successes": 8,
+            "trials": 8
+          },
+          "T09": {
+            "pass1": 1.0,
+            "successes": 8,
+            "trials": 8
+          },
+          "T10": {
+            "pass1": 0.875,
+            "successes": 7,
+            "trials": 8
+          },
+          "T11": {
+            "pass1": 1.0,
+            "successes": 8,
+            "trials": 8
+          },
+          "T12": {
+            "pass1": 1.0,
+            "successes": 8,
+            "trials": 8
+          }
+        },
+        "runs": 96,
+        "state_bytes_median": 8192.0,
+        "successes": 94,
+        "wall_median": 0.5184623979998833,
+        "wall_p95": 1.0297617619999073
+      },
+      "native_wal": {
+        "invocations_median": 5.0,
+        "invocations_p95": 8,
+        "pass1": 0.9791666666666666,
+        "per_task": {
+          "T01": {
+            "pass1": 1.0,
+            "successes": 8,
+            "trials": 8
+          },
+          "T02": {
+            "pass1": 1.0,
+            "successes": 8,
+            "trials": 8
+          },
+          "T03": {
+            "pass1": 0.875,
+            "successes": 7,
+            "trials": 8
+          },
+          "T04": {
+            "pass1": 1.0,
+            "successes": 8,
+            "trials": 8
+          },
+          "T05": {
+            "pass1": 1.0,
+            "successes": 8,
+            "trials": 8
+          },
+          "T06": {
+            "pass1": 1.0,
+            "successes": 8,
+            "trials": 8
+          },
+          "T07": {
+            "pass1": 1.0,
+            "successes": 8,
+            "trials": 8
+          },
+          "T08": {
+            "pass1": 1.0,
+            "successes": 8,
+            "trials": 8
+          },
+          "T09": {
+            "pass1": 1.0,
+            "successes": 8,
+            "trials": 8
+          },
+          "T10": {
+            "pass1": 0.875,
+            "successes": 7,
+            "trials": 8
+          },
+          "T11": {
+            "pass1": 1.0,
+            "successes": 8,
+            "trials": 8
+          },
+          "T12": {
+            "pass1": 1.0,
+            "successes": 8,
+            "trials": 8
+          }
+        },
+        "runs": 96,
+        "state_bytes_median": 16384.0,
+        "successes": 94,
+        "wall_median": 0.4545707854995271,
+        "wall_p95": 0.8907686370002921
+      }
+    },
+    "wall_ratio_bootstrap": {
+      "ci95": [
+        0.9975161443979785,
+        1.2824508059061392
+      ],
+      "pairs": 96,
+      "reps": 10000,
+      "seed": 20261108
+    },
+    "wall_ratio_langchain_over_native_wal": 1.140553714709461,
+    "wall_sign_test": {
+      "langchain_faster": 47,
+      "langchain_slower": 49,
+      "p_two_sided": 0.918778035364537,
+      "pairs": 96
+    }
+  }
+}
