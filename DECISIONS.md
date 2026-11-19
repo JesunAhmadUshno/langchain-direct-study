@@ -110,3 +110,53 @@ replace the frozen single-pass wall times with new ones and could not
 change any verdict input except the wall medians it would invalidate.
 Local verification before the fix: `python -m pytest -q`, 23 of 23
 passed, including the reproduction tests over the committed raw files.
+
+## D11. Amendment (2026-11-17): WAL-mode native variant, registered before the run
+
+Post-registration variant run, executed as gap closure for the
+ROADMAP follow-up ("a WAL-mode, batched-commit native variant, to
+bound how much of the wall ratio is the native arm's commit policy
+rather than framework overhead"). This amendment is registered
+before any variant run. It changes no frozen verdict: H1, H2 and
+H3 belong to the frozen arms as run in the registered suite, and
+RESULTS.md is not modified. The variant is reported in new files
+only (results/raw_main_wal.json, results/raw_fault_wal.json,
+results/env_wal.json, results/summary_wal.json,
+results/wal_comparison.md).
+
+The variant, exactly: the native arm rerun with its SQLite state
+store in WAL journal mode in place of the default rollback
+journal. The single change is that the arm's connection executes
+`PRAGMA journal_mode=WAL` when the state store is opened.
+Implementation: study/arm_native_wal.py runs study.arm_native.run
+with only its connection factory replaced, so the loop, the
+commit-per-step cadence, the intent/done effects table, the
+reconcile discipline and every other line of the arm are the
+frozen ones. The synchronous setting is left at the SQLite
+default, and the shared ledger is a JSONL file, not SQLite, so
+it is untouched by the pragma. A batched-commit variant is not
+run under this amendment; it would need its own.
+
+Protocol, identical to the registered suite: main suite, the
+same 12 tasks, trial seeds 1000 to 1007, 96 runs for the variant
+arm, with the LangChain arm rerun in the same pass so the wall
+ratio is paired within one pass on one machine; fault suite,
+the same 6 tasks (T07 to T12), fault classes F1 and F2 at the
+registered kill points, fault seeds 2000 and 2001, 2 repeats per
+cell, 48 fault runs for the variant arm, launched through
+study/run_one_wal.py, which mirrors study/run_one.py for this
+arm only. Runner: study/run_wal_suite.py; analysis:
+study/analyze_wal.py. The run executes in a scratch copy on the
+workspace block device, as the 2026-11-17 suite re-execution did
+(results/rerun_comparison.md records why /tmp, a tmpfs, is not a
+valid filesystem for the wall axis).
+
+Comparison registered in advance: median wall seconds per run
+for native-WAL and for LangChain in the same pass, and their
+ratio, reported beside the committed synchronous-commit ratio
+(0.459, machine of record) and the 2026-11-17 re-execution ratio
+(0.856, this throttled VM). The question the variant answers is
+narrow: whether the H2 reading (LangChain direct faster than the
+native arm) survives once the native arm's state store uses WAL,
+and by how much. Fault behaviour is reported as passes out of
+48 and the count of runs ending with a duplicated effect.
