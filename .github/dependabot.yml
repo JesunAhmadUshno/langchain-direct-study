@@ -1,0 +1,14 @@
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+  - package-ecosystem: pip
+    directory: /
+    schedule:
+      interval: weekly
+    ignore:
+      # The framework pins are part of the result; a bump is a new measurement (README, ROADMAP).
+      - dependency-name: langchain
+      - dependency-name: langchain-core
